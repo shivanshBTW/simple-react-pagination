@@ -1,10 +1,18 @@
+import './UserItem.css';
+
 function UserItem(props) {
-  let { name, picture } = props;
+  let { paginationListItemObj } = props;
+  let { name, picture } = paginationListItemObj;
 
   return (
-    <div>
-      <div>{name.title} {name.first} {name.last}</div>
-    </div>
+      <div
+        className="user-item-root"
+      >
+        <img src={picture.medium} alt={name.first} />
+        <div>
+          {name.title} {name.first} {name.last}
+        </div>
+      </div>
   );
 }
 
