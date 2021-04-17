@@ -1,70 +1,113 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SimplePagination Docs
+This is the documentation for the Simple Pagination Component which is present in 'src/simple-react-pagination/SimplePagination'. It has no default styling applied to it to increase versatility between use cases. Users can either use the default classes to style it or provider their own class names to style each element of the pagination component.
 
-## Available Scripts
+to run a demo of the app, run the following commands in a terminal
+```
+git clone https://github.com/shivanshBTW/simple-react-pagination
+cd simple-react-pagination
+yarn install
+yarn start
+```
+  
 
-In the project directory, you can run:
+  
 
-### `yarn start`
+## PROPS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### buttonCount
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The number of buttons that will appear
 
-### `yarn test`
+default 10,
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `yarn build`
+### pageNumber
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The page number of the current page (can be maintained in a state)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+default  0,
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
 
-### `yarn eject`
+### setPageNumber
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+callback function to set the page number,
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### itemList
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The list of items that is received based on the page number
 
-## Learn More
+default  [ ],
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### maxPages
 
-### Code Splitting
+default  100,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  
 
-### Analyzing the Bundle Size
+### component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A react component( say listItemComponent ) that will be used to display an item in the list, the list will be populated from the itemList prop and it’s object will be passed as paginationListItemObj to the “listItemComponent”
 
-### Making a Progressive Web App
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## CLASSNAMES OF VARIOUS ELEMENTS 
+### ( TO BE PASSED AS PROPS ) ( INDIVIDUALLY OPTIONAL )
 
-### Advanced Configuration
+### pageRootClass
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+default ’simple-pagination-list-root',
 
-### Deployment
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### paginationListClass
 
-### `yarn build` fails to minify
+default  'simple-pagination-list',
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
+
+### paginationItemContainerClass
+
+default 'simple-pagination-item-container',
+
+  
+
+### prevButtonClass
+
+default  'simple-pagination-prev-button',
+
+  
+
+### prevButtonChild
+
+default  'Prev',
+
+  
+
+### pageSelectButtonClass
+default  'simple-pagination-page-select-button',
+
+  
+
+### nextButtonClass
+default  'simple-pagination-next-button',
+
+  
+
+### nextButtonChild
+default 'Next',
+
+  
+
+### selectedButtonClass
+default 'simple-pagination-selected-button',
+
+  
+
+P.S. : users can either introduce their own class or use the default classes to style their component
