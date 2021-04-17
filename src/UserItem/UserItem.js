@@ -3,7 +3,7 @@ function UserItem(props) {
 
   return (
     <div>
-      <div>{name}</div>
+      <div>{name.title} {name.first} {name.last}</div>
     </div>
   );
 }

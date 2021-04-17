@@ -1,11 +1,12 @@
 function SimplePaginationContainer(props) {
   let {
     pageNumber,
-    itemList,
+    itemList=[],
     setPageNumber,
     maxPages,
     component: Component
   } = props;
+  console.log(itemList)
   return (
     <div>
       {itemList.map((itemObj, index) => {

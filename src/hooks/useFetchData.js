@@ -13,7 +13,7 @@ function useFetchData() {
     };
     try {
       let response = await axios.request(axiosConfig);
-      console.log(response);
+      console.log('response',response);
       if (response.status === 200) {
         return response.data.results || [];
       }

@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useState, useLayoutEffect, useEffect, useCallback } from "react";
-import useFetchData from "./hooks/useFetchData";
-import useIteration from "./hooks/useIteration";
-import SimplePaginationContainer from "./simple-react-pagination/SimplePaginationContainer";
-import "./styles.css";
-import UserItem from "./UserItem/UserItem";
+import axios from 'axios';
+import { useState, useLayoutEffect, useEffect, useCallback } from 'react';
+import useFetchData from './hooks/useFetchData';
+import useIteration from './hooks/useIteration';
+import SimplePaginationContainer from './simple-react-pagination/SimplePaginationContainer/SimplePaginationContainer';
+import './styles.css';
+import UserItem from './UserItem/UserItem';
 
 function App() {
   let [userList, setUserList] = useState([]);
@@ -13,14 +13,14 @@ function App() {
   const maxPages = 100;
 
   let [fetchData] = useFetchData();
+  let handleFetchData = async () => {
+    let newUserList = await fetchData(pageNumber, limit);
+    setUserList(newUserList);
+  }
+  
+  useEffect(handleFetchData, [fetchData, pageNumber]);
 
-  useEffect(() => {
-    setUserList(fetchData(pageNumber, limit));
-  }, [fetchData, pageNumber]);
-
-  useLayoutEffect(() => {
-    setUserList(fetchData(pageNumber, limit));
-  }, []);
+  useLayoutEffect(handleFetchData, []);
 
   return (
     <div className="App">
