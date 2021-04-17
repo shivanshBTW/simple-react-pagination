@@ -3,8 +3,9 @@ import { useState, useLayoutEffect, useEffect, useCallback } from 'react';
 import useFetchData from './hooks/useFetchData';
 import useIteration from './hooks/useIteration';
 import SimplePaginationContainer from './simple-react-pagination/SimplePaginationContainer/SimplePaginationContainer';
-import './styles.css';
 import UserItem from './UserItem/UserItem';
+import './styles.css'; 
+import './pagination-component.css';
 
 function App() {
   let [userList, setUserList] = useState([]);
@@ -17,8 +18,8 @@ function App() {
     let newUserList = await fetchData(pageNumber, limit);
     setUserList(newUserList);
   }
-  
-  useEffect(handleFetchData, [fetchData, pageNumber]);
+
+  useEffect(handleFetchData, [pageNumber]);
 
   useLayoutEffect(handleFetchData, []);
 
@@ -30,6 +31,7 @@ function App() {
         setPageNumber={setPageNumber}
         maxPages={maxPages}
         component={UserItem}
+        buttonCount={5}
       />
     </div>
   );
